@@ -1,0 +1,32 @@
+public class Solution {
+    public string ReverseWords(string s) {
+        String answer = new String("");
+        int n = s.Length; int i = n-1;
+        while (i>=0 && s[i] == ' '){
+            i--;
+        }
+        while (i>=0){
+            if (s[i] != ' '){
+                while (i>=0 && s[i] != ' '){
+                    i--;
+                }
+                int x = i+1;
+                while (x<n && s[x] != ' '){
+                    answer += s[x];
+                    x++;
+                }
+            }
+            if (i>=0 && s[i] == ' '){
+                while (i>=0 && s[i] == ' '){
+                    i--;
+                }
+                answer += ' ';
+            }
+        }
+        i = answer.Length-1;
+        while (i>=0 && answer[i] == ' '){
+            i--;
+        }
+        return answer.Substring(0,i+1);
+    }
+}
